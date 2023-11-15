@@ -1,0 +1,5 @@
+def integral(a: Double, b: Double, f: Double => Double): Double = 
+  val h =(b-a)
+  val h1 = (a + b)/2
+  val res = (h) * (f(a) + 4 * f(h1) + F(b)) / 6
+  res
