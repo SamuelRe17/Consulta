@@ -1,5 +1,38 @@
-def integral(a: Double, b: Double, f: Double => Double): Double = 
-  val h =(b-a)
-  val h1 = (a + b)/2
-  val res = (h) * (f(a) + 4 * f(h1) + F(b)) / 6
+def integracion(a: Double, b: Double, f: Double => Double): Double = 
+  val xmed = (a + b)/2
+  val res = (b-a) * (f(a) + 4 * f(xmed) + f(b)) / 6
   res
+
+def cerror(re: Double, ro: Double): Double = 
+  val calculoerror = math.abs(re - ro)
+  calculoerror
+
+def f1(x: Double): Double = -1*(math.pow(x,2))+8*x-12
+val res1= integracion(3,5,f1)
+val error1=cerror(7.33,res1)
+
+def f2(x:Double): Double = 3*(math.pow(x,2))
+val res2 = integracion(0,2,f2)
+val error2=cerror(8, res2)
+
+def f3(x:Double): Double = x+2*math.pow(x,2)-math.pow(x,3)+5*math.pow(x,4)
+val res3 = integracion(-1,1,f3)
+val error3 = cerror(3.333, res3)
+
+def f4(x:Double): Double = (2*x+1)/(math.pow(x,2)+x)
+val res4 = integracion(1,2,f4)
+val error4 = cerror(1.09861, res4)
+
+def f5(x: Double): Double= math.pow(2.71828, x)
+val res5 = integracion(0,1,f5)
+val error5 = cerror(1.71828, res5)
+
+def f6(x:Double): Double = 1/math.pow(x-1,1/2)
+val res6 = integracion(2,3,f6)
+val error6 = cerror(0.828427, res6)
+
+def f7(x: Double): Double = 1/(1+math.pow(x,2))
+val res7 = integracion(0,1,f7)
+val error7 = cerror(0.785398, res7)
+
+  
